@@ -29,6 +29,9 @@ export default function Navigation() {
           <Link href="/bellum-gallicum" style={{ opacity: 0.8 }} onMouseOver={e => e.target.style.opacity = 1} onMouseOut={e => e.target.style.opacity = 0.8}>
             De Bello Gallico
           </Link>
+          <Link href="/quellen" style={{ opacity: 0.8, color: 'var(--accent)' }} onMouseOver={e => e.target.style.opacity = 1} onMouseOut={e => e.target.style.opacity = 0.8}>
+            Quellen
+          </Link>
         </nav>
       </div>
     </header>
