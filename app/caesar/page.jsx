@@ -48,11 +48,11 @@ export default function CaesarPage() {
                 <div className="stat-label">Gallischer Krieg (v. Chr.)</div>
               </div>
               <div className="stat-card">
-                <span className="stat-number">25°</span>
+                <span className="stat-number">23</span>
                 <div className="stat-label">Messerstiche (15. März 44)</div>
               </div>
               <div className="stat-card">
-                <span className="stat-number">800.000</span>
+                <span className="stat-number">1 Mio.</span>
                 <div className="stat-label">Gallier getötet (Schätzung Plutarch)</div>
               </div>
             </div>
@@ -69,10 +69,16 @@ export default function CaesarPage() {
             <p className="label" style={{ marginBottom: '0.8rem' }}>100 – 84 v. Chr.</p>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Herkunft & frühe Jahre</h2>
             <p>
-              Caesar wurde am <strong style={{ color: 'var(--foreground)' }}>13. Juli 100 v. Chr.</strong> in eine alteingesessene Patrizierfamilie, die <em>gens Iulia</em>, geboren. Die Familie leitete ihren Ursprung von <em>Iulus</em> ab, dem Sohn des Trojaners Aeneas und damit von der Göttin Venus – ein Mythos, den Caesar zeitlebens politisch nutzte.
+              Caesar wurde am <strong style={{ color: 'var(--foreground)' }}>13. Juli 100 v. Chr.</strong> in eine Patrizierfamilie, die <em>gens Iulia</em>, geboren. Die Familie leitete ihren Ursprung von <em>Iulus</em> ab, dem Sohn des Trojaners Aeneas – und damit direkt von der Göttin Venus. Dieser göttliche Stammbaum war für Caesar kein bloßer Aberglaube, sondern ein mächtiges Instrument politischer Legitimation (<em>Propaganda</em>).
             </p>
+            <div className="info-box">
+              <h4 style={{ marginBottom: '0.5rem' }}>Optimaten vs. Popularen</h4>
+              <p style={{ margin: 0, fontSize: '0.92rem' }}>
+                Rom war gespalten: Die <strong style={{ color: 'var(--foreground)' }}>Optimaten</strong> wollten die Macht des Senats zementieren. Die <strong style={{ color: 'var(--foreground)' }}>Popularen</strong>, zu denen sich Caesar bekannte, suchten ihre Machtbasis im Volk und in den Volksversammlungen.
+              </p>
+            </div>
             <p>
-              Sein Vater, ebenfalls <em>Gaius Julius Caesar</em>, war Praetor der Provinz Asia. Nach dessen frühem Tod (85 v. Chr.) wurde Caesar von seiner Mutter Aurelia Cotta erzogen, die als strenge, außergewöhnlich gebildete Frau gilt. Als Sulla 83 v. Chr. die Diktatur ergriff, befahl er Caesar, sich von seiner Frau <strong style={{ color: 'var(--foreground)' }}>Cornelia</strong> zu scheiden (Tochter des Sulla-Feindes Cinna). Caesar weigerte sich – eine lebensgefährliche Entscheidung. Er floh aus Rom, wurde aber dank der einflussreichen Fürsprache von Vestal-Priesterinnen und Verwandten schließlich begnadigt.
+              Als der Diktator Sulla 83 v. Chr. die Macht in Rom übernahm, geriet der junge Caesar in Lebensgefahr. Er weigerte sich, seine Frau Cornelia zu verlassen. Er musste fliehen und kehrte erst nach Sullas Tod 78 v. Chr. nach Rom zurück, wo er sich sofort als brillanter Redner in Gerichtsprozessen einen Namen machte.
             </p>
           </ScrollReveal>
           <ScrollReveal delay="delay-1">
@@ -94,49 +100,46 @@ export default function CaesarPage() {
             <p className="label" style={{ marginBottom: '0.8rem' }}>75 v. Chr.</p>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Entführung durch Piraten</h2>
             <p>
-              Auf der Fahrt nach Rhodos, um dort bei dem Rhetoriker Appolonius Molon Redekunst zu studieren, wurde Caesars Schiff bei der Insel Pharmakussa von <strong style={{ color: 'var(--foreground)' }}>kilikischen Piraten</strong> aufgebracht. Als die Räuber ein Lösegeld von 20 Talenten verlangten, lachte er sie nach Überlieferung des Plutarch aus – und bestand darauf, das Lösegeld auf <strong style={{ color: 'var(--foreground)' }}>50 Talente</strong> zu erhöhen, da 20 für einen Mann seiner Bedeutung eine Beleidigung seien.
+              Auf dem Weg nach Rhodos wurde Caesar von kilikischen Piraten gefangen genommen. Das berühmte Ereignis zeigt seinen Charakter: Als sie 20 Talente Lösegeld forderten, bestand er darauf, auf <strong style={{ color: 'var(--foreground)' }}>50 Talente</strong> zu erhöhen. Während der Gefangenschaft behandelte er die Piraten wie seine Untergebenen und drohte ihnen lachend, sie später kreuzigen zu lassen.
             </p>
             <p>
-              Während der rund 38 Tage andauernden Gefangenschaft las Caesar seinen Entführern Reden und Gedichte vor, beschimpfte sie freundschaftlich als Barbaren, wenn sie ihm nicht applaudierten – und kündigte ihnen beiläufig an, sie nach seiner Freilassung kreuzigen zu lassen. Die Piraten hielten das für einen Scherz. Nach Zahlung des Lösegelds rüstete Caesar auf eigene Kosten eine Flotte aus, ließ die Piraten verfolgen, gefangennehmen und tatsächlich kreuzigen.
+              Nach seiner Freilassung tat er genau das: Er stellte eine Flotte auf, jagte sie und ließ sie hängen. Damit demonstrierte er schon früh die Konsequenz und Härte, die seinen späteren Aufstieg prägen sollten.
             </p>
           </ScrollReveal>
           <ScrollReveal delay="delay-1">
-            <img src="/gallicum.png" alt="Antike Hafenszene" className="zigzag-img" />
+            <img src="/gallicum.png" alt="Antike Seefahrt" className="zigzag-img" />
+          </ScrollReveal>
+        </div>
+
+        {/* ZIGZAG 3: Rubikon */}
+        <div className="zigzag-row">
+          <ScrollReveal className="zigzag-text">
+            <p className="label" style={{ marginBottom: '0.8rem' }}>Januar 49 v. Chr.</p>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Der Übergang über den Rubikon</h2>
+            <p>
+              Nach dem Ende des Gallischen Krieges verlangte der Senat Caesars Rückkehr ohne Heer. Caesar wusste: Ohne den Schutz seines Amtes würde er von seinen Feinden (wie Cato dem Jüngeren) sofort angeklagt. Am <strong style={{ color: 'var(--foreground)' }}>10. Januar 49 v. Chr.</strong> überschritt er den Grenzfluss Rubikon. 
+            </p>
+            <p>
+              Mit dem Ausruf <strong style={{ fontStyle: 'italic' }}>„Alea iacta est“</strong> (Die Würfel sind gefallen) beging er Hochverrat an der Republik und löste den Bürgerkrieg gegen Pompeius Magnus aus. Es war der Anfang vom Ende der Römischen Republik.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay="delay-1">
+            <img src="/rubicon.png" alt="Caesar am Rubikon" className="zigzag-img" />
           </ScrollReveal>
         </div>
 
         {/* Timeline: Politischer Aufstieg */}
         <ScrollReveal>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center', paddingTop: '2rem' }}>Der politische Aufstieg</h2>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center', paddingTop: '2rem' }}>Meilensteine der Macht</h2>
         </ScrollReveal>
 
         <div className="timeline">
           <div className="timeline-item">
             <ScrollReveal>
-              <p className="label" style={{ marginBottom: '0.5rem' }}>69 v. Chr.</p>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Quaestor in Hispania</h3>
-              <p>
-                Caesar begann den traditionellen <em>cursus honorum</em> als <strong style={{ color: 'var(--foreground)' }}>Quaestor</strong> in der Provinz Hispania Ulterior. Bei einer Statue Alexanders des Großen soll er in Tränen ausgebrochen sein – mit den Worten, Alexander habe in seinem Alter bereits so viel erreicht, während er selbst noch nichts geleistet habe.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <div className="timeline-item">
-            <ScrollReveal>
-              <p className="label" style={{ marginBottom: '0.5rem' }}>65 v. Chr.</p>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Aedil und populäre Öffentlichkeitsarbeit</h3>
-              <p>
-                Als kurulischer <strong style={{ color: 'var(--foreground)' }}>Aedil</strong> war Caesar für die öffentlichen Spiele zuständig. Er verschuldete sich immens, um dem Volk prächtige Gladiatorenkämpfe und Tierhetzen auszurichten. 320 Gladiatorenpaare traten allein zu den Gedächtnisspielen für seinen Vater auf. Die Beliebtheit, die er sich so erwarb, war enormes politisches Kapital.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <div className="timeline-item">
-            <ScrollReveal>
               <p className="label" style={{ marginBottom: '0.5rem' }}>63 v. Chr.</p>
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Pontifex Maximus</h3>
               <p>
-                Trotz überlegener Mitbewerber aus alten Adelsgeschlechtern gewann Caesar die Wahl zum <strong style={{ color: 'var(--foreground)' }}>Pontifex Maximus</strong>, dem obersten Priester Roms – ein Lebenszeit-Amt. Berühmtes Zitat an seine Mutter am Wahltag: <em>„Heute, Mutter, wirst du deinen Sohn entweder als Pontifex maximum oder als Verbannten wiedersehen."</em> Der Sieg basierte auf massiver Bestechung.
+                Gegen erfahrene Konkurrenten gewann Caesar das Amt des obersten Priesters. Er zog enorme Kredite auf, um Wählerstimmen zu kaufen – eine riskante "Alles-oder-nichts"-Wette, die aufging.
               </p>
             </ScrollReveal>
           </div>
@@ -147,7 +150,7 @@ export default function CaesarPage() {
               <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Das Erste Triumvirat</h3>
               <div className="info-box gold">
                 <p style={{ margin: 0, fontSize: '0.95rem' }}>
-                  Caesar schloss ein inoffizielles, geheimes machtpolitisches Bündnis mit zwei der mächtigsten Männer Roms: dem General <strong style={{ color: 'var(--foreground)' }}>Pompeius Magnus</strong> und dem Milliardär <strong style={{ color: 'var(--foreground)' }}>Marcus Licinius Crassus</strong>. Pompeius wollte Landversorgung für seine Veteranen, Crassus steuerliche Erleichterungen für seine Geschäfte – Caesar sicherte sich das Konsulat 59 v. Chr. und danach das Prokonsulat in Gallien.
+                  Bündnis mit <strong style={{ color: 'var(--foreground)' }}>Pompeius Magnus</strong> (Militär) und <strong style={{ color: 'var(--foreground)' }}>Crassus</strong> (Finanzen). Gemeinsam kontrollierten sie die Politik Roms am Senat vorbei.
                 </p>
               </div>
             </ScrollReveal>
@@ -155,58 +158,31 @@ export default function CaesarPage() {
 
           <div className="timeline-item">
             <ScrollReveal>
-              <p className="label" style={{ marginBottom: '0.5rem' }}>49 v. Chr.</p>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Der Rubikon-Übergang</h3>
+              <p className="label" style={{ marginBottom: '0.5rem' }}>45 v. Chr.</p>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Kalenderreform & Lupercalien</h3>
               <p>
-                Nach dem Ende des Gallischen Krieges beschlossen die Optimaten im Senat, Caesar von seinem Amt zu entheben und ihn vor Gericht zu stellen. Da er nur als amtierender Magistrat Immunität genoss, bedeutete die Rückkehr nach Rom ohne Heer seine sichere Verhaftung. Caesar überschritt in der Nacht des <strong style={{ color: 'var(--foreground)' }}>10./11. Januar 49 v. Chr.</strong> mit der Legio XIII den Fluss Rubikon – die Grenze zwischen der Provinz und dem römischen Kernland. Er sagte: <em>„Alea iacta est"</em> (Die Würfel sind gefallen). Damit begann der zweite Bürgerkrieg.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <div className="timeline-item">
-            <ScrollReveal>
-              <p className="label" style={{ marginBottom: '0.5rem' }}>48 v. Chr.</p>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>Pharsalos und Kleopatra</h3>
-              <p>
-                In der entscheidenden <strong style={{ color: 'var(--foreground)' }}>Schlacht von Pharsalos</strong> (9. August 48 v. Chr.) standen sich ca. 22.000 Caesarianer und 45.000 Pompeianer gegenüber. Caesars Taktik: Er schwächte seinen eigenen Angriff ab und platzierte eine verdeckte vierte Linie, die Pompeius' Reiter flankierte. Pompeius floh nach Ägypten und wurde dort ermordet.  
-              </p>
-              <p>
-                In Alexandria traf Caesar auf <strong style={{ color: 'var(--foreground)' }}>Kleopatra VII.</strong>, die sich, um von Caesar empfangen zu werden, in einem Teppich eingerollt in sein Zimmer tragen ließ. Caesar unterstützte sie im ägyptischen Thronstreit – und zeugte mit ihr einen Sohn, <em>Kaisarion</em>.
+                Caesar führte den <strong style={{ color: 'var(--foreground)' }}>Julianischen Kalender</strong> ein. Kurz vor seinem Tod, beim Fest der Lupercalia, bot ihm sein Vertrauter Marcus Antonius demonstrativ eine Königskrone an. Caesar lehnte dreimal ab – das Volk applaudierte, doch die Verschwörer im Senat sahen darin eine Bestätigung ihrer schlimmsten Befürchtungen.
               </p>
             </ScrollReveal>
           </div>
         </div>
 
-        {/* ZIGZAG 3: Diktatur */}
-        <div className="zigzag-row" style={{ marginTop: '3rem' }}>
+        {/* ZIGZAG 4: Das Ende */}
+        <div className="zigzag-row reverse" style={{ marginTop: '3rem' }}>
           <ScrollReveal className="zigzag-text">
-            <p className="label" style={{ marginBottom: '0.8rem' }}>44 v. Chr.</p>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Dictator perpetuo</h2>
+            <p className="label" style={{ marginBottom: '0.8rem' }}>15. März 44 v. Chr.</p>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Die Iden des März</h2>
             <p>
-              Im Februar 44 v. Chr. ließ Caesar sich zum <strong style={{ color: 'var(--foreground)' }}>Dictator perpetuo</strong> (Diktator auf Lebenszeit) ernennen. Das war die endgültige Provokation. In der republikanischen Verfassung war die Diktatur immer nur ein temporäres Notinstrument – eine Besetzung auf Lebenszeit war einmalig und erschien vielen als verdecktes Königtum.
+              In der Kurie des Pompeius, wo der Senat tagte, wurde Caesar von einer Gruppe Verschwörer unter der Leitung von <strong style={{ color: 'var(--foreground)' }}>Brutus und Cassius</strong> umzingelt. 
             </p>
             <p>
-              Caesar führte in dieser Zeit bedeutende Reformen durch: Er reorganisierte den <strong style={{ color: 'var(--foreground)' }}>Julianischen Kalender</strong> (365 Tage mit Schalttag alle 4 Jahre, gültig bis 1582), reformierte das Münzsystem, legte Kolonien für 80.000 Bürger an und erweiterte den Senat auf 900 Mitglieder.
+              Nach 23 Messerstichen brach Caesar am Fuße der Statue seines ehemaligen Rivalen Pompeius zusammen. Er hinterließ ein Machtvakuum, das schließlich durch seinen Adoptivsohn <strong style={{ color: 'var(--foreground)' }}>Augustus</strong> und das Zeitalter des Kaisertums gefüllt wurde.
             </p>
           </ScrollReveal>
           <ScrollReveal delay="delay-1">
-            <img src="/gallicum-hero.png" alt="Römische Legion" className="zigzag-img" />
+            <img src="/senate.png" alt="Das Attentat im Senat" className="zigzag-img" />
           </ScrollReveal>
         </div>
-
-        {/* Rote Karte: Iden des März */}
-        <ScrollReveal>
-          <div className="info-box red" style={{ borderRadius: 'var(--radius-lg)', borderLeft: 'none', border: '1px solid rgba(255,59,48,0.25)', background: 'rgba(255,59,48,0.05)', padding: '3rem', marginTop: '3rem', textAlign: 'center' }}>
-            <p className="label" style={{ color: '#ff3b30', marginBottom: '1rem' }}>15. März 44 v. Chr.</p>
-            <h2 style={{ fontSize: '2.8rem', color: '#ff3b30', marginBottom: '1.5rem' }}>Die Iden des März</h2>
-            <p style={{ maxWidth: '700px', margin: '0 auto 1.5rem', fontSize: '1.15rem' }}>
-              An diesem Tag versammelten sich über <strong style={{ color: 'var(--foreground)' }}>60 Senatoren</strong> in der Kurie des Pompeius-Theaters. Diese Gruppe, die sich <em>Liberatores</em> nannte und von <strong style={{ color: 'var(--foreground)' }}>Marcus Junius Brutus</strong> und <strong style={{ color: 'var(--foreground)' }}>Gaius Cassius Longinus</strong> angeführt wurde, stach <strong style={{ color: 'var(--foreground)' }}>23 Mal</strong> auf Caesar ein. Laut Sueton rief er nicht "Et tu, Brute" – das war Shakespeare – sondern soll sich nach dem ersten Stich sein Toga-Gewand über das Gesicht gezogen haben, um würdevoll zu sterben.
-            </p>
-            <p style={{ maxWidth: '600px', margin: '0 auto 0', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-              Statt die Republik zu retten, wie erhofft, beendete das Attentat sie endgültig. 13 Jahre Bürgerkrieg folgten, bis Caesars Adoptivsohn Octavian (Augustus) als erster Kaiser Roms die Alleinherrschaft übernahm.
-            </p>
-          </div>
-        </ScrollReveal>
 
       </section>
     </div>
