@@ -167,22 +167,82 @@ export default function CaesarPage() {
           </div>
         </div>
 
-        {/* ZIGZAG 4: Das Ende */}
+        {/* ZIGZAG 4: Die Bedeutung der Iden */}
         <div className="zigzag-row reverse" style={{ marginTop: '3rem' }}>
           <ScrollReveal className="zigzag-text">
             <p className="label" style={{ marginBottom: '0.8rem' }}>15. März 44 v. Chr.</p>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '1.2rem' }}>Die Iden des März</h2>
             <p>
-              In der Kurie des Pompeius, wo der Senat tagte, wurde Caesar von einer Gruppe Verschwörer unter der Leitung von <strong style={{ color: 'var(--foreground)' }}>Brutus und Cassius</strong> umzingelt. 
+              Im römischen Kalender bezeichnete der Begriff <strong style={{ color: 'var(--foreground)' }}>„Idus"</strong> (latinisiert: Iden) ursprünglich den Tag des Vollmonds – und damit je nach Monat den 13. oder 15. Tag. Die Iden des März (<em>Idus Martiae</em>) fielen stets auf den <strong style={{ color: 'var(--foreground)' }}>15. März</strong> und galten als religiöser Festtag zu Ehren des Kriegsgottes Mars, Schutzgott Roms. Dass ausgerechnet an diesem Tag Caesar ermordet wurde, empfanden die Römer als besonders schicksalhaft.
             </p>
             <p>
-              Nach 23 Messerstichen brach Caesar am Fuße der Statue seines ehemaligen Rivalen Pompeius zusammen. Er hinterließ ein Machtvakuum, das schließlich durch seinen Adoptivsohn <strong style={{ color: 'var(--foreground)' }}>Augustus</strong> und das Zeitalter des Kaisertums gefüllt wurde.
+              In der Kurie des Pompeius-Theaters umzingelten über <strong style={{ color: 'var(--foreground)' }}>60 Verschwörer</strong> den Diktator – angeführt von <strong style={{ color: 'var(--foreground)' }}>Marcus Junius Brutus</strong> und <strong style={{ color: 'var(--foreground)' }}>Gaius Cassius Longinus</strong>. Nach 23 Stichen brach Caesar am Fuße der Statue seines ehemaligen Rivalen Pompeius zusammen.
             </p>
           </ScrollReveal>
           <ScrollReveal delay="delay-1">
             <img src="/senate.png" alt="Das Attentat im Senat" className="zigzag-img" />
           </ScrollReveal>
         </div>
+
+        {/* Full-width: Warum & Wer schrieb darüber */}
+        <ScrollReveal>
+          <div style={{ margin: '2rem 0 0' }}>
+            <h3 style={{ fontSize: '2rem', marginBottom: '2rem', textAlign: 'center' }}>Quellen: Wer schrieb über die Iden des März – und warum?</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+
+              {/* Sueton */}
+              <div className="card">
+                <p className="label" style={{ marginBottom: '0.5rem' }}>ca. 121 n. Chr.</p>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>Sueton</h4>
+                <p style={{ fontSize: '0.95rem' }}>
+                  <strong style={{ color: 'var(--foreground)' }}>Gaius Suetonius Tranquillus</strong> schrieb unter Kaiser Hadrian sein Werk <em>De vita Caesarum</em> (Über das Leben der Caesaren). Er hatte Zugang zu kaiserlichen Archiven und schildert das Attentat mit grausamer Nüchternheit: Er berichtet, dass Caesar nach dem ersten Stich schweigend blieb – und sich am Ende sein Gewand über den Kopf zog, um würdevoll zu sterben. Von den 23 Wunden sei nur eine einzige tödlich gewesen (Wunde Nr. 2, so der Arzt Antistius).
+                </p>
+                <div className="info-box" style={{ marginTop: '1rem' }}>
+                  <p style={{ margin: 0, fontSize: '0.85rem' }}>
+                    <strong>Zweck:</strong> Sueton wollte ein umfassendes Porträt der Persönlichkeit schreiben – Stärken und Schwächen gleichermaßen. Er gilt als einer der ersten „investigativen" Biografen der Antike.
+                  </p>
+                </div>
+              </div>
+
+              {/* Plutarch */}
+              <div className="card">
+                <p className="label" style={{ marginBottom: '0.5rem' }}>ca. 100 n. Chr.</p>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>Plutarch</h4>
+                <p style={{ fontSize: '0.95rem' }}>
+                  <strong style={{ color: 'var(--foreground)' }}>Mestrios Plutarchos</strong> – griechischer Philosoph – verfasste die <em>Bioi paralleloi</em> (Parallele Lebensbeschreibungen), in denen er je einen griechischen und einen römischen Staatsmann vergleicht. Caesar wird mit Alexander dem Großen verglichen. Plutarch betont die Warnsignale vor den Iden (Haruspex Spurinna warnte ihn mit „Hüte dich vor den Iden des März!") und beschreibt, wie 23 Verschwörer auf Caesar einstachen.
+                </p>
+                <div className="info-box" style={{ marginTop: '1rem' }}>
+                  <p style={{ margin: 0, fontSize: '0.85rem' }}>
+                    <strong>Zweck:</strong> Plutarch suchte moralische Vorbilder und Gegenbilder für seine griechische und römische Leserschaft – seine Biografie ist moralisch-philosophisch geprägt, nicht politisch.
+                  </p>
+                </div>
+              </div>
+
+              {/* Shakespeare */}
+              <div className="card">
+                <p className="label" style={{ marginBottom: '0.5rem' }}>1599 n. Chr.</p>
+                <h4 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>Shakespeare</h4>
+                <p style={{ fontSize: '0.95rem' }}>
+                  Das berühmteste Zitat – <strong style={{ color: 'var(--foreground)' }}><em>„Et tu, Brute?"</em></strong> (Auch du, Brutus?) – stammt <strong style={{ color: 'var(--foreground)' }}>nicht</strong> aus antiken Quellen, sondern aus dem Theaterstück <em>Julius Caesar</em> von <strong style={{ color: 'var(--foreground)' }}>William Shakespeare</strong> (uraufgeführt 1599). Plutarch erwähnt, Caesar habe zuletzt nichts mehr gesagt. Sueton überliefert die griechische Variante: <em>„καὶ σύ, τέκνον"</em> (Auch du, mein Kind?). Shakespeares Version wurde so mächtig, dass sie heute für historisch gehalten wird.
+                </p>
+                <div className="info-box" style={{ marginTop: '1rem' }}>
+                  <p style={{ margin: 0, fontSize: '0.85rem' }}>
+                    <strong>Zweck:</strong> Shakespeare schrieb ein politisches Drama für das elisabethanische England – eine Warnung vor Tyrannei und den Folgen des Meuchelmords.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Pull Quote Finale */}
+        <ScrollReveal>
+          <blockquote className="pull-quote" style={{ marginTop: '4rem' }}>
+            „Statt die Republik zu retten, beendeten die Mörder sie."
+            <p className="pull-quote-attr">— Historische Schlussfolgerung. Die <em>Liberatores</em> lösten 13 Jahre Bürgerkrieg aus – bis Augustus 27 v. Chr. das Kaisertum begründete.</p>
+          </blockquote>
+        </ScrollReveal>
 
       </section>
     </div>
