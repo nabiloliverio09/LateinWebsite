@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export const metadata = {
@@ -16,7 +15,26 @@ export default function Home() {
         <div className="container">
           <ScrollReveal>
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-              <Image src="/logo.png" alt="Imperium Romanum" width={80} height={80} style={{ filter: 'invert(0.6)' }} />
+              <svg
+                width="80"
+                height="80"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{ color: 'var(--foreground)', opacity: 0.8 }}
+              >
+                <circle cx="50" cy="50" r="47" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.25" />
+                <path d="M18 50 Q14 38 20 28 Q24 22 30 20 Q26 30 22 40 Q20 45 18 50Z" fill="currentColor" opacity="0.6"/>
+                <path d="M16 58 Q10 48 14 36 Q17 28 24 24 Q20 35 18 46 Q17 52 16 58Z" fill="currentColor" opacity="0.4"/>
+                <path d="M20 66 Q12 58 14 46 Q16 38 22 33 Q20 44 20 55 Q20 60 20 66Z" fill="currentColor" opacity="0.3"/>
+                <path d="M82 50 Q86 38 80 28 Q76 22 70 20 Q74 30 78 40 Q80 45 82 50Z" fill="currentColor" opacity="0.6"/>
+                <path d="M84 58 Q90 48 86 36 Q83 28 76 24 Q80 35 82 46 Q83 52 84 58Z" fill="currentColor" opacity="0.4"/>
+                <path d="M80 66 Q88 58 86 46 Q84 38 78 33 Q80 44 80 55 Q80 60 80 66Z" fill="currentColor" opacity="0.3"/>
+                <path d="M50 20 L44 32 L30 30 L38 40 L28 52 L42 48 L50 72 L58 48 L72 52 L62 40 L70 30 L56 32 Z" fill="currentColor"/>
+                <circle cx="50" cy="18" r="6" fill="currentColor"/>
+                <path d="M55 17 L62 20 L55 22 Z" fill="currentColor"/>
+                <path d="M40 82 Q50 78 60 82 L58 88 Q50 86 42 88 Z" fill="currentColor" opacity="0.5"/>
+              </svg>
             </div>
             <p className="label" style={{ marginBottom: '1.5rem' }}>Schulprojekt Latein · Kant-Gymnasium Spandau</p>
             <h1 className="hero-display" style={{ marginBottom: '2rem', lineHeight: 1.05 }}>
