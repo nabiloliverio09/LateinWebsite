@@ -1,118 +1,136 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import ScrollReveal from '@/components/ScrollReveal';
+
+export const metadata = {
+  title: 'Imperium Romanum – Lexicon für Julius Caesar & De Bello Gallico',
+  description: 'Ein interaktives Schulprojekt des Kant-Gymnasiums Spandau. Erkunden Sie das Leben Caesars und den Gallischen Krieg in einem modernen Apple-Style Lexicon.',
+};
 
 export default function Home() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem', paddingBottom: '6rem' }}>
-      
-      {/* Hero Section */}
-      <section className="container" style={{
-        minHeight: '85vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        paddingTop: '8rem'
-      }}>
-        <ScrollReveal>
-          <h1 className="hero-title">
-            <span className="text-gradient">Veni, Vidi, Vici.</span><br />
-            Die Welt des Caesar.
-          </h1>
-          <p className="hero-subtitle" style={{ margin: '0 auto 3rem auto', maxWidth: '700px' }}>
-            Erkunden Sie das Leben des berühmtesten Feldherrn der Antike und sein literarisches Meisterwerk, den Gallischen Krieg. Ein interaktives Schulprojekt für das Kant-Gymnasium Spandau.
-          </p>
-          <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center' }}>
-            <Link href="#explore" className="btn-primary" style={{ backgroundColor: 'var(--foreground)', color: 'var(--background)' }}>
-              Entdecken
-            </Link>
-            <Link href="/caesar" className="btn-primary" style={{ backgroundColor: 'transparent', color: 'var(--foreground)', border: '1px solid var(--nav-border)' }}>
-              Über Caesar
-            </Link>
-          </div>
-        </ScrollReveal>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '0', paddingBottom: '0' }}>
+
+      {/* ── HERO ─────────────────────────────────────── */}
+      <section style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '8rem 2rem 6rem' }}>
+        <div className="container">
+          <ScrollReveal>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+              <Image src="/logo.png" alt="Imperium Romanum" width={80} height={80} style={{ filter: 'invert(0.6)' }} />
+            </div>
+            <p className="label" style={{ marginBottom: '1.5rem' }}>Schulprojekt Latein · Kant-Gymnasium Spandau</p>
+            <h1 className="hero-display" style={{ marginBottom: '2rem', lineHeight: 1.05 }}>
+              <span className="text-gradient">Veni,<br />Vidi,<br />Vici.</span>
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay="delay-1">
+            <p className="hero-subtitle" style={{ maxWidth: '650px', margin: '0 auto 3rem' }}>
+              Das interaktive Lexicon über <strong style={{ fontWeight: 600, color: 'var(--foreground)' }}>Gaius Julius Caesar</strong> – Feldherr, Diktator und brillanter Schriftsteller. Entstanden als Schulprojekt für das Fach Latein.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <Link href="/caesar" className="btn-primary">Julius Caesar entdecken</Link>
+              <Link href="/bellum-gallicum" className="btn-secondary">De Bello Gallico</Link>
+            </div>
+          </ScrollReveal>
+        </div>
       </section>
 
-      {/* Bento Grid Section */}
-      <section id="explore" className="container">
+      {/* ── BENTO GRID ────────────────────────────────── */}
+      <section className="container" style={{ padding: '4rem 2rem 8rem' }}>
         <ScrollReveal>
           <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-            <h2 style={{ fontSize: '3rem', fontWeight: 700, marginBottom: '1rem' }}>Zwei Epochen. Ein Mann.</h2>
-            <p style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem' }}>Der Aufstieg Roms zum Weltreich, geprägt durch Strategie, Verrat und brillante Propaganda.</p>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 700, marginBottom: '1rem' }}>Zwei Epochen. Ein Mann.</h2>
+            <p style={{ maxWidth: '550px', margin: '0 auto' }}>Erkunden Sie Caesars Leben und sein literarisches Erbe im Detail.</p>
           </div>
         </ScrollReveal>
 
-        <div className="bento-grid">
-          
-          {/* Card 1: Caesar Overview (Large) */}
+        <div className="bento-grid" style={{ gap: '1.5rem' }}>
+
+          {/* CARD 1: CAESAR (Large, Dark) */}
           <div className="bento-col-8">
-            <ScrollReveal delay="delay-1" style={{ height: '100%' }}>
+            <ScrollReveal style={{ height: '100%' }}>
               <Link href="/caesar" style={{ display: 'block', height: '100%' }}>
-                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', backgroundImage: 'url(/caesar-hero.png)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-                  {/* Overlay for readability */}
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)' }}></div>
-                  <div style={{ position: 'relative', zIndex: 1, marginTop: 'auto', paddingTop: '12rem', color: '#fff' }}>
-                    <h3 style={{ fontSize: '2.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>Julius Caesar</h3>
-                    <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: '1.5rem', maxWidth: '500px' }}>
-                      Staatsmann, Feldherr und Diktator. Erfahren Sie alles über seinen Aufstieg zur Macht, das Erste Triumvirat und die Iden des März.
+                <div
+                  className="card"
+                  style={{
+                    height: '100%',
+                    minHeight: '500px',
+                    backgroundImage: 'url(/caesar-hero.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    position: 'relative',
+                    padding: 0,
+                    cursor: 'pointer',
+                  }}
+                >
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%)', borderRadius: 'inherit' }} />
+                  <div style={{ position: 'relative', zIndex: 1, padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', height: '100%', color: '#fff' }}>
+                    <p style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.6rem' }}>Biografie</p>
+                    <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '0.7rem', letterSpacing: '-0.03em', color: '#fff' }}>Julius Caesar</h3>
+                    <p style={{ color: 'rgba(255,255,255,0.75)', marginBottom: '1.5rem', maxWidth: '480px' }}>
+                      Vom Patrizierkind zum ewigen Diktator. Entführung durch Piraten, Rubikon-Übergang und die Iden des März – alles über den bekanntesten Römer der Geschichte.
                     </p>
-                    <div style={{ display: 'flex', alignItems: 'center', color: '#fff', fontWeight: 600 }}>
-                      Biografie lesen <span style={{ marginLeft: '0.5rem' }}>→</span>
-                    </div>
+                    <span style={{ fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>Biografie lesen →</span>
                   </div>
                 </div>
               </Link>
             </ScrollReveal>
           </div>
 
-          {/* Card 2: Schulprojekt Info (Small) */}
+          {/* CARD 2: Schulprojekt badge */}
           <div className="bento-col-4">
-            <ScrollReveal delay="delay-2" style={{ height: '100%' }}>
-              <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--accent)', color: '#fff' }}>
-                <h3 style={{ fontSize: '1.8rem', fontWeight: 600, marginBottom: '1rem' }}>Kant-Gymnasium</h3>
-                <p style={{ color: 'rgba(255,255,255,0.9)', flexGrow: 1 }}>
-                  Dieses digitale Lexicon wurde von Nabil Oliverio als aufwendiges Schulprojekt im Fach Latein erstellt.
-                </p>
-                <div style={{ marginTop: '2rem' }}>
-                  <span style={{ padding: '0.5rem 1rem', background: 'rgba(255,255,255,0.2)', borderRadius: '20px', fontSize: '0.9rem', fontWeight: 600 }}>Schuljahr 2026</span>
+            <ScrollReveal delay="delay-1" style={{ height: '100%' }}>
+              <div className="card" style={{ height: '100%', background: 'var(--accent)', color: '#fff', minHeight: '240px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <p style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.65)', marginBottom: '0.8rem' }}>Kant-Gymnasium Spandau</p>
+                  <h3 style={{ fontSize: '1.9rem', fontWeight: 700, color: '#fff', marginBottom: '0.8rem', letterSpacing: '-0.02em' }}>Schulprojekt<br />Latein 2026</h3>
+                  <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem' }}>Erstellt von Nabil Oliverio. Mit eigener Handschrift-Übersetzung der <em>Commentarii</em>.</p>
+                </div>
+                <div>
+                  <span style={{ display: 'inline-block', padding: '0.45rem 1rem', background: 'rgba(255,255,255,0.2)', borderRadius: '999px', fontSize: '0.82rem', fontWeight: 600 }}>Nabil Oliverio</span>
                 </div>
               </div>
             </ScrollReveal>
           </div>
 
-          {/* Card 3: Quellen (Small) */}
+          {/* CARD 3: Zitat */}
           <div className="bento-col-4">
-            <ScrollReveal delay="delay-1" style={{ height: '100%' }}>
-              <Link href="/quellen" style={{ display: 'block', height: '100%' }}>
-                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📚</div>
-                  <h3 style={{ fontSize: '1.6rem', fontWeight: 600, marginBottom: '1rem' }}>Forschung & Quellen</h3>
-                  <p style={{ flexGrow: 1 }}>
-                    Historische Texte von Sueton, Plutarch und natürlich Caesars eigenen <em>Commentarii</em>.
-                  </p>
-                  <div style={{ display: 'flex', alignItems: 'center', color: 'var(--accent)', fontWeight: 500 }}>
-                    Zur Bibliografie <span style={{ marginLeft: '0.5rem' }}>→</span>
-                  </div>
-                </div>
-              </Link>
+            <ScrollReveal delay="delay-2" style={{ height: '100%' }}>
+              <div className="card" style={{ height: '100%', minHeight: '240px', background: '#1c1c1e', color: '#f5f5f7', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <p style={{ fontSize: '2.5rem', lineHeight: 1, marginBottom: '0.5rem', color: 'var(--accent)' }}>"</p>
+                <p style={{ fontSize: '1.3rem', fontStyle: 'italic', color: '#f5f5f7', fontWeight: 500, letterSpacing: '-0.01em' }}>
+                  Gallia est omnis divisa in partes tres.
+                </p>
+                <p style={{ marginTop: '1rem', fontSize: '0.82rem', color: '#86868b' }}>— Caesar, Bellum Gallicum I.1</p>
+              </div>
             </ScrollReveal>
           </div>
 
-          {/* Card 4: Bellum Gallicum (Large) */}
+          {/* CARD 4: Bellum Gallicum (Large) */}
           <div className="bento-col-8">
-            <ScrollReveal delay="delay-2" style={{ height: '100%' }}>
+            <ScrollReveal delay="delay-1" style={{ height: '100%' }}>
               <Link href="/bellum-gallicum" style={{ display: 'block', height: '100%' }}>
-                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', backgroundImage: 'url(/gallicum-hero.png)', backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative' }}>
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.9), rgba(0,0,0,0.2))' }}></div>
-                  <div style={{ position: 'relative', zIndex: 1, paddingRight: '2rem', color: '#fff' }}>
-                    <h3 style={{ fontSize: '2.2rem', fontWeight: 700, marginBottom: '0.5rem' }}>De Bello Gallico</h3>
-                    <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: '1.5rem', maxWidth: '400px' }}>
-                      Acht Jahre Krieg, brutale Eroberungen und ein Meisterwerk der antiken Propaganda. Inklusive eigener Handschrift-Übersetzung!
+                <div
+                  className="card"
+                  style={{
+                    height: '100%',
+                    minHeight: '360px',
+                    backgroundImage: 'url(/gallicum-hero.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center top',
+                    position: 'relative',
+                    padding: 0,
+                    cursor: 'pointer',
+                  }}
+                >
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 70%)', borderRadius: 'inherit' }} />
+                  <div style={{ position: 'relative', zIndex: 1, padding: '2.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', color: '#fff' }}>
+                    <p style={{ fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', marginBottom: '0.6rem' }}>58–50 v. Chr.</p>
+                    <h3 style={{ fontSize: '2.4rem', fontWeight: 700, marginBottom: '0.7rem', letterSpacing: '-0.03em', color: '#fff' }}>De Bello Gallico</h3>
+                    <p style={{ color: 'rgba(255,255,255,0.75)', marginBottom: '1.5rem', maxWidth: '400px' }}>
+                      Alesia, Vercingetorix, Rheinbrücke – und Caesars meisterhafter Propaganda-Text. Inklusive eigener Handschrift-Übersetzung!
                     </p>
-                    <div style={{ display: 'flex', alignItems: 'center', color: '#fff', fontWeight: 600 }}>
-                      Kriegsverlauf analysieren <span style={{ marginLeft: '0.5rem' }}>→</span>
-                    </div>
+                    <span style={{ fontWeight: 600, color: '#fff', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>Kriegsverlauf entdecken →</span>
                   </div>
                 </div>
               </Link>

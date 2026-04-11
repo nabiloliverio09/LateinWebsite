@@ -1,37 +1,61 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Navigation() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      height: '60px',
-      zIndex: 100,
-      display: 'flex',
-      alignItems: 'center',
-    }} className="glass">
-      <div className="container" style={{
+    <header
+      className="glass"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '64px',
+        zIndex: 100,
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '0 1.5rem',
-      }}>
-        <div style={{ fontWeight: 600, fontSize: '1.2rem', letterSpacing: '-0.02em' }}>
-          <Link href="/">Imperium Romanum</Link>
-        </div>
+      }}
+    >
+      <div
+        style={{
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        {/* Logo + Wortmarke */}
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
+          <Image src="/logo.png" alt="Imperium Romanum Logo" width={36} height={36} style={{ filter: 'invert(0.7)' }} />
+          <span style={{ fontWeight: 700, fontSize: '1.05rem', letterSpacing: '-0.02em', color: 'var(--foreground)' }}>
+            Imperium Romanum
+          </span>
+        </Link>
+
+        {/* Desktop Nav */}
         <nav style={{ display: 'flex', gap: '2rem', fontSize: '0.9rem', fontWeight: 500 }}>
-          <Link href="/caesar" style={{ opacity: 0.8 }} onMouseOver={e => e.target.style.opacity = 1} onMouseOut={e => e.target.style.opacity = 0.8}>
-            Julius Caesar
-          </Link>
-          <Link href="/bellum-gallicum" style={{ opacity: 0.8 }} onMouseOver={e => e.target.style.opacity = 1} onMouseOut={e => e.target.style.opacity = 0.8}>
-            De Bello Gallico
-          </Link>
-          <Link href="/quellen" style={{ opacity: 0.8, color: 'var(--accent)' }} onMouseOver={e => e.target.style.opacity = 1} onMouseOut={e => e.target.style.opacity = 0.8}>
-            Quellen
-          </Link>
+          {[
+            { href: '/caesar', label: 'Julius Caesar' },
+            { href: '/bellum-gallicum', label: 'De Bello Gallico' },
+            { href: '/quellen', label: 'Quellen' },
+          ].map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              style={{ color: 'var(--foreground)', opacity: 0.75, transition: 'opacity 0.2s' }}
+              onMouseOver={e => e.currentTarget.style.opacity = 1}
+              onMouseOut={e => e.currentTarget.style.opacity = 0.75}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
