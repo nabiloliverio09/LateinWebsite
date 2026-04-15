@@ -47,6 +47,7 @@ export default function Home() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link href="/caesar" className="btn-primary">Julius Caesar entdecken</Link>
+              <Link href="/game" className="btn-primary" style={{ background: 'linear-gradient(to right, #3b82f6, #4f46e5)', border: 'none', color: '#fff' }}>⚔️ Defend Germania spielen</Link>
               <Link href="/bellum-gallicum" className="btn-secondary">De Bello Gallico</Link>
             </div>
           </ScrollReveal>
