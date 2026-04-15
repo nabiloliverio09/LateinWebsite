@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './game.module.css';
 import { getQuestionForAction } from '../../lib/quiz-data';
-import { Swords, Shield, Wheat, Users, UserRound, ArrowRight, Clock } from 'lucide-react';
+import { Swords, Shield, Wheat, Users, UserRound, ArrowRight, Clock, Volume2, VolumeX } from 'lucide-react';
 
 export default function GamePage() {
   const [gameState, setGameState] = useState('intro'); // 'intro', 'playing', 'victory', 'defeat'
@@ -26,7 +26,35 @@ export default function GamePage() {
   // Tracking
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
+  // Hintergrundmusik
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const bgMusicRef = useRef(null);
+
   const eventLogRef = useRef(null);
+
+  useEffect(() => {
+    bgMusicRef.current = new Audio('/sounds/background.mp3');
+    bgMusicRef.current.loop = true;
+    bgMusicRef.current.volume = 0.3; // Relativ leise für Hintergrund
+
+    return () => {
+      if (bgMusicRef.current) {
+        bgMusicRef.current.pause();
+        bgMusicRef.current.src = "";
+      }
+    };
+  }, []);
+
+  const toggleMusic = () => {
+    if (!bgMusicRef.current) return;
+    if (musicPlaying) {
+      bgMusicRef.current.pause();
+      setMusicPlaying(false);
+    } else {
+      bgMusicRef.current.play().catch(e => console.log('Autoplay blockiert:', e));
+      setMusicPlaying(true);
+    }
+  };
 
   useEffect(() => {
     if (timeLeft === null || !currentQuestion) return;
@@ -218,9 +246,16 @@ export default function GamePage() {
 
   return (
     <div className={styles.gameContainer}>
-      <div className={styles.header}>
+      <div className={styles.header} style={{ position: 'relative' }}>
         <h1 className={styles.title}>Germania magna</h1>
         <p className={styles.subtitle}>Der Kampf gegen Julius Cäsar (Tag {turn})</p>
+        <button 
+          onClick={toggleMusic} 
+          style={{ position: 'absolute', top: '50%', right: '1.5rem', transform: 'translateY(-50%)', background: musicPlaying ? 'rgba(74, 222, 128, 0.2)' : 'rgba(255,255,255,0.05)', border: `1px solid ${musicPlaying ? 'rgba(74, 222, 128, 0.5)' : 'rgba(255,255,255,0.1)'}`, padding: '0.75rem', borderRadius: '50%', color: musicPlaying ? '#4ade80' : 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s' }}
+          title={musicPlaying ? "Musik ausschalten" : "Epische römische Musik einschalten"}
+        >
+          {musicPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
+        </button>
       </div>
 
       {gameState === 'intro' && (
