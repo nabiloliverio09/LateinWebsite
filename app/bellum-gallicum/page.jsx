@@ -52,6 +52,18 @@ export default function BellumGallicumPage() {
               </div>
             </div>
           </ScrollReveal>
+
+          <div style={{ maxWidth: '800px', margin: '3rem auto 0', padding: '1.5rem', backgroundColor: 'var(--card-bg)', borderRadius: '12px', borderLeft: '4px solid var(--accent)' }}>
+            <p style={{ margin: '0 0 1rem 0', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              <strong>Hintergrundwissen:</strong> Die Berichte über den Gallischen Krieg sind dabei in 8 Bücher aufgeteilt, wobei das letzte Buch nicht von Caesar selbst geschrieben wurde, sondern von seinem hohen Offizier, Freund und Sekretär Aulus Hirtius.
+            </p>
+            <p style={{ margin: '0 0 1rem 0', fontSize: '1.05rem', lineHeight: '1.6' }}>
+              Die Bücher folgen dem annalistischen Prinzip (von <em>annales libri</em>, Jahrbücher). Für jedes Kriegsjahr wurde also ein Buch geschrieben, in dem die Handlung und der Ablauf des Krieges in diesem Jahr geschildert werden.
+            </p>
+            <p style={{ margin: 0, fontSize: '1.05rem', lineHeight: '1.6' }}>
+              Caesar schrieb seine Bücher zudem bewusst in der 3. Person, um Objektivität und ein Gefühl der Souveränität zu erwecken (eine klare Form der Propaganda, um eigene subjektive Sichten und Ziele zu verdecken).
+            </p>
+          </div>
         </div>
       </section>
 
@@ -90,68 +102,60 @@ export default function BellumGallicumPage() {
         </div>
       </section>
 
-      {/* ── KRIEGSVERLAUF ─────────────────────────────── */}
+      {/* ── KRIEGSVERLAUF (Timeline) ─────────────────────────────── */}
       <section className="container" style={{ padding: '6rem 2rem' }}>
-
-        {/* ZIGZAG 1: Ursachen */}
-        <div className="zigzag-row">
-          <ScrollReveal>
-            <p className="label" style={{ marginBottom: '0.8rem' }}>58 v. Chr.</p>
-            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.2rem' }}>Helvetier & Ariovist</h2>
-            <p>
-              Caesar nutzte die Wanderung der <strong style={{ color: 'var(--foreground)' }}>Helvetier</strong> als Vorwand, um militärisch in das freie Gallien einzugreifen. Mit strategischem Geschick besiegte er zuerst die Helvetier bei Bibracte und drängte im selben Jahr den germanischen Fürsten <strong style={{ color: 'var(--foreground)' }}>Ariovist</strong> über den Rhein zurück. 
-            </p>
-            <p>
-              Obwohl Ariovist zuvor ein „Freund des römischen Volkes“ war, stellte Caesar ihn als existentielle Bedrohung für Gallien dar, um seine eigene Präsenz in der Region zu legitimieren. Damit begann eine Kette von Eroberungen, die fast ganz Westeuropa unter römische Herrschaft brachten.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay="delay-1">
-            <img src="/gallicum.png" alt="Römische Taktik" className="zigzag-img" />
-          </ScrollReveal>
-        </div>
-
-        {/* Info Box: Propaganda */}
         <ScrollReveal>
-          <div className="info-box gold" style={{ marginBottom: '5rem' }}>
-            <h3 style={{ fontSize: '1.3rem', marginBottom: '0.75rem' }}>🎭 Die Kunst der Propaganda</h3>
-            <p style={{ margin: 0, fontSize: '0.95rem' }}>
-              Caesar schreibt unter dem Titel <strong style={{ fontStyle: 'italic' }}>Commentarii</strong> (Amtsaufzeichnungen), was Objektivität suggeriert. Doch die Verwendung der <strong style={{ color: 'var(--foreground)' }}>dritten Person</strong> („Caesar tat...“) und die gezielte Übertreibung barbarischer Gräueltaten dienten dazu, seine oft völkerrechtswidrigen Feldzüge vor dem römischen Senat zu rechtfertigen.
-            </p>
-          </div>
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Der Kriegsverlauf</h2>
         </ScrollReveal>
 
-        {/* ZIGZAG 2: Alesia */}
-        <div className="zigzag-row reverse">
-          <ScrollReveal>
-            <p className="label" style={{ marginBottom: '0.8rem' }}>52 v. Chr.</p>
-            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.2rem' }}>Alesia: Das Ende des Traums</h2>
-            <p>
-              Die Belagerung von <strong style={{ color: 'var(--foreground)' }}>Alesia</strong> war Caesars größtes militärisches Risiko. Um den Aufstand unter <strong style={{ color: 'var(--foreground)' }}>Vercingetorix</strong> zu brechen, ließ er einen doppelten Belagerungsring errichten: Die <strong style={{ fontStyle: 'italic' }}>Circumvallation</strong> hielt die Belagerten ein, während die <strong style={{ fontStyle: 'italic' }}>Contravallation</strong> die römischen Legionen vor einem herannahenden gallischen Entsatzheer schützte.
-            </p>
-            <p>
-              Am Ende kapitulierte Vercingetorix vor Caesar. Diese Schlacht besiegelte das Schicksal der Kelten in Gallien und legte den Grundstein für die heute romanisch geprägte Kultur Frankreichs (<em>Aequitas, Jus, Lex</em>).
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay="delay-1">
-            <img src="/alesia.png" alt="Die Belagerung von Alesia" className="zigzag-img" />
-          </ScrollReveal>
-        </div>
+        <div className="timeline">
+          {/* Phase 1 */}
+          <div className="timeline-item">
+            <ScrollReveal>
+              <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Ursprung und Helvetier-Feldzug (58 v. Chr.)</h2>
+              <p>
+                Gallien war von verschiedenen keltischen Stämmen besiedelt. Als Caesar sein Prokonsulat in der <em>Gallia Narbonensis</em> antrat, nutzte er die geplante Massenabwanderung des Stammes der <strong>Helvetier</strong> als Vorwand. Er behauptete, sie würden verbündete Stämme Roms (die Häduer) plündern, besiegte sie vernichtend bei Bibracte und zwang sie zur Umkehr.
+              </p>
+            </ScrollReveal>
+          </div>
 
-        {/* ZIGZAG 3: Rheinbrücke */}
-        <div className="zigzag-row">
-          <ScrollReveal>
-            <p className="label" style={{ marginBottom: '0.8rem' }}>55 v. Chr.</p>
-            <h2 style={{ fontSize: '2.2rem', marginBottom: '1.2rem' }}>Die Brücke über den Rhein</h2>
-            <p>
-              Caesar wollte zeigen, dass kein Hindernis zu groß für Rom ist. Innerhalb von nur <strong style={{ color: 'var(--foreground)' }}>10 Tagen</strong> bauten seine Legionäre eine massive Holzbrücke über den damals wilden Rhein. 
-            </p>
-            <p>
-              Nach 18 Tagen Strafexpedition gegen germanische Stämme ließ er die Brücke beim Rückzug wieder zerstören. Es war eine reine <strong style={{ color: 'var(--foreground)' }}>psychologische Kriegführung</strong>: Er wollte beweisen, dass die Germanen nirgendwo vor dem Zugriff Roms sicher waren.
-            </p>
-          </ScrollReveal>
-          <ScrollReveal delay="delay-1">
-            <img src="/caesar-hero.png" alt="Römische Armee" className="zigzag-img" />
-          </ScrollReveal>
+          {/* Phase 2 */}
+          <div className="timeline-item">
+            <ScrollReveal>
+              <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Rheinübergang und Britannien (55–54 v. Chr.)</h2>
+              <p>
+                Caesar war der Meister der Einschüchterung. Um den germanischen Stämmen Roms technische Überlegenheit zu demonstrieren, ließ seine Armee innerhalb von nur zehn Tagen eine massive <strong>Rheinbrücke</strong> bauen, marschierte für 18 Tage nach Germanien ein und zerstörte die Brücke auf dem Rückweg wieder.
+              </p>
+              <p>
+                Im Anschluss plante er die erste römische Expedition über den Ärmelkanal nach <strong>Britannien</strong>, welche – obwohl strategisch eher wirkungslos – in Rom für unglaubliches Aufsehen und Bewunderung sorgte.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Phase 3 */}
+          <div className="timeline-item">
+            <ScrollReveal>
+              <div className="card" style={{ backgroundColor: 'var(--card-bg)', margin: '2rem 0' }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#ff3b30' }}>Die Rebellion von Ambiorix (54 v. Chr.)</h3>
+                <p style={{ margin: 0 }}>
+                  Im Winter brach ein schwerer Aufstand der Eburonen unter <strong>Ambiorix</strong> aus. Ein komplettes römisches Kastell (ca. 15 Kohorten unter Sabinus und Cotta) wurde in einen Hinterhalt gelockt und niedergemetzelt. Dies war Caesars schwerste bis dahin erlittene Niederlage. Er wandte extreme Brutalität an, um den Aufstand niederzuschlagen.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Phase 4 */}
+          <div className="timeline-item" style={{ paddingBottom: '0' }}>
+            <ScrollReveal>
+              <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem' }}>Vercingetorix & Die Schlacht um Alesia (52 v. Chr.)</h2>
+              <p>
+                Im Jahr 52 v. Chr. sah sich Caesar der ultimativen Bedrohung gegenüber: Ein großflächiger, vereinter gallischer Aufstand unter dem Arverner <strong>Vercingetorix</strong>.
+              </p>
+              <p>
+                Die Entscheidung fiel bei der Festung <strong>Alesia</strong>. In einer militärisch beispiellosen Meisterleistung ließ Caesar einen gewaltigen Doppelring aus Befestigungen errichten – eine 15 km lange Mauer nach innen (gegen Vercingetorix) und eine 21 km lange Mauer nach außen (gegen ein riesiges gallisches Entsatzheer von 250.000 Mann). Die Römer gewannen die Doppelschlacht, Vercingetorix kapitulierte und ganz Gallien wurde dauerhaft römische Provinz.
+              </p>
+            </ScrollReveal>
+          </div>
         </div>
 
       </section>
