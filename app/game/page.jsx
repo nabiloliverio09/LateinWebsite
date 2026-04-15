@@ -22,6 +22,9 @@ export default function GamePage() {
   
   // Moral / Extra Rations
   const [extraRations, setExtraRations] = useState(0);
+  
+  // Tracking
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
 
   const eventLogRef = useRef(null);
 
@@ -63,7 +66,7 @@ export default function GamePage() {
   };
 
   const handleActionClick = (actionName) => {
-    const q = getQuestionForAction(actionName);
+    const q = getQuestionForAction(actionName, answeredQuestions);
     setCurrentQuestion(q);
     setActiveAction(actionName);
     
@@ -89,25 +92,60 @@ export default function GamePage() {
   };
 
   const handleAnswerClick = (selectedOption) => {
-    const isCorrect = selectedOption === currentQuestion.correctAnswer;
+    const isCorrect = !currentQuestion.trickQuestion && selectedOption === currentQuestion.correctAnswer;
     
     // Evaluate Result
     if (isCorrect) {
       addLog(`Richtig! Die Götter sind mit uns.`);
+      // Frage merken, um Wiederholungen zu vermeiden
+      setAnsweredQuestions(prev => [...prev, currentQuestion.id]);
       executeAction(activeAction, true);
     } else {
-      addLog(`Falsche Antwort! Du hast "${selectedOption}" gewählt. Richtig wäre "${currentQuestion.correctAnswer}".`);
+      let truth = currentQuestion.trickQuestion ? "Das war eine Falle (es gab keine richtige Antwort)!" : `Richtig wäre "${currentQuestion.correctAnswer}".`;
+      addLog(`Falsche Entscheidung! ${truth}`);
       executeAction(activeAction, false);
     }
     
     setCurrentQuestion(null);
     setActiveAction(null);
+    setTimeLeft(null);
+  };
+
+  const handleTrapClick = () => {
+    if (currentQuestion.trickQuestion) {
+      addLog(`Hervorragend! Du hast die Falle durchschaut – die Behauptung in der Frage war völlig illusorisch.`);
+      setAnsweredQuestions(prev => [...prev, currentQuestion.id]);
+      executeAction(activeAction, true);
+    } else {
+      addLog(`Falsche Vorsicht! Die Frage war legitim. Diese Chance hast du verspielt.`);
+      executeAction(activeAction, false);
+    }
+    
+    setCurrentQuestion(null);
+    setActiveAction(null);
+    setTimeLeft(null);
   };
 
   const executeAction = (actionName, success) => {
     let nextTurnOffset = 1;
 
     if (success) {
+      // Sound abspielen
+      try {
+        let src = '';
+        if (actionName === 'gather') src = '/sounds/harvest.mp3';
+        else if (actionName === 'recruit') src = '/sounds/swords.mp3';
+        else if (actionName === 'attack') src = '/sounds/battlecry.mp3';
+        
+        if (src) {
+          const audio = new Audio(src);
+          audio.volume = 0.5; // Halbe Lautstärke für eine angenehme Web-Erfahrung
+          audio.play().catch(e => console.log('Autoplay blockiert oder Datei nicht gefunden:', e));
+        }
+      } catch (err) {
+        console.log('Audio Fehler', err);
+      }
+
       switch (actionName) {
         case 'gather':
           setSupplies(s => s + 30);
@@ -172,6 +210,9 @@ export default function GamePage() {
     setSupplies(50);
     setCaesarStrength(250);
     setExtraRations(0);
+    // Behalte `answeredQuestions` bei, wenn man erneut spielt, um nicht sofort wieder dieselben Fragen zu bekommen, 
+    // oder resette sie. Wir leeren sie für einen totalen Neustart:
+    setAnsweredQuestions([]);
     setLogs([{ time: 'Tag 1', text: 'Die Römer beginnen den Bau der gigantischen Brücke über den Rhein...' }]);
   };
 
@@ -294,6 +335,14 @@ export default function GamePage() {
               )}
             </div>
             
+            {currentQuestion.image && (
+              <img 
+                src={currentQuestion.image} 
+                alt="Historische Abbildung zur Frage" 
+                style={{ width: '100%', maxHeight: '220px', objectFit: 'cover', borderRadius: '0.5rem', marginBottom: '1.25rem', border: '1px solid rgba(255,255,255,0.1)' }} 
+              />
+            )}
+            
             <h3 className={styles.quizQuestion} style={{ fontSize: currentQuestion.question.length > 80 ? '1.25rem' : '1.5rem', marginBottom: currentQuestion.hints ? '1rem' : '2rem' }}>
               {currentQuestion.question}
             </h3>
@@ -319,6 +368,14 @@ export default function GamePage() {
                   {opt}
                 </button>
               ))}
+              
+              <button 
+                className={styles.quizOptionBtn} 
+                onClick={handleTrapClick}
+                style={{ marginTop: '1rem', background: 'rgba(239, 68, 68, 0.1)', border: '1px solid rgba(239, 68, 68, 0.3)', color: '#fca5a5' }}
+              >
+                🚨 Das ist eine Falle! (Ergibt keinen Sinn / Falsche Behauptung)
+              </button>
             </div>
           </div>
         </div>
